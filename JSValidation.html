@@ -1,0 +1,137 @@
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>	
+</head>
+<style>
+label{
+font-weight: bold;
+color:darkblue;
+}
+</style>
+<body background="https://previews.123rf.com/images/oly5/oly51304/oly5130400136/19117875-abstract-white-background-gray-color-vintage-grunge-background-texture-frosty-silver-background-luxu-Stock-Photo.jpg">
+<div class="text-center">
+<label  id="girisYazi">
+		Kayıt Ekranı
+</label>
+</div>
+<div class="text-center" id="KayitDiv">
+
+	<br>
+	 <label>Ad:  </label>
+      <input type="text" id="Ad"/>
+	  <br>
+	  <br>
+	  
+   <label>SoyAd:  </label>
+      <input type="text" id="Soyad"/>
+	  <br>
+	  <br>
+	<label>Email:</label>
+	<input type="text" id="email" />
+	<br>
+	<br>
+	<label>Telefon:</label>
+      <input type="text" id="telefon"/>
+	<br>
+	<br>
+	
+	<label>Cİnsiyet:</label>
+	 <input type="text" id="cinsiyet" list="browsers" />
+ <datalist id="browsers" >
+  <option value="KADIN">
+  <option value="ERKEK">
+ 
+</datalist> 
+<br>
+<br>
+	<input type="button" id="btnKaydet" value="Kaydet" style="background-color:#6298b1;"/>
+	<br>
+	<br>
+<div class="alert alert-danger" id="alert" style="display:none;" role="alert">
+	Geçerli bir email olduğuna emin olun!
+	</div>
+	<br>
+	<div class="alert alert-danger" id="alert2" style="display:none;" role="alert">
+	Girdiğiniz bilgileri kontrol ediniz!!!!
+	</div>
+</body>
+<script type="text/javascript">
+	$('#btnKaydet').click(function(){
+		var email = $('#email').val();
+		var parola = $('#password').val();
+		if(EmailCheck(email)){
+			
+			$('#girisYazi').text('Kayıt Başarılı:) ');
+		
+		}
+		else{
+			$('#alert').show();
+		}
+		if(document.getElementById("Ad").value=="")
+	{
+	$("#alert2").show();
+	document.form1.isim.focus();return false;
+	}
+	else{ 
+	 if(document.getElementById("Soyad").value=="")
+	{
+	$("#alert2").show();
+	}
+	 else if(document.getElementById("telefon").value=="" || telefon.length==11)
+	{
+	$("#alert2").show();
+	}
+else if(document.getElementById("cinsiyet").value=="")
+	{
+	$("#alert2").show();
+	}
+	
+	}
+   
+
+	});
+	
+	function EmailCheck(emailAddress){
+		var etIndex = emailAddress.indexOf("@");
+		
+		
+		if (etIndex > 0)
+		{
+			var adet = emailAddress.length - etIndex;
+			var domain = emailAddress.substr(etIndex+1,adet-1);
+			if (domain.length > 0)
+			{
+				var nokta = domain.indexOf(".");
+				if(nokta > 0){
+					return true;
+				}
+				else{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else{
+			return false;
+		}
+		
+	}
+
+
+	
+</script>
+
+
+
+
+
+
+
+
+
+
